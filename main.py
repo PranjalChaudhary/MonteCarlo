@@ -4,7 +4,7 @@ number_of_simulations = 1000
 betting_amount = 1
 total_money = 1000
 number_of_hands = 1000
-reward_amount = 4
+reward_amount = 5
 
 
 def monte_carlo(seed, bet, total):
@@ -21,12 +21,16 @@ def monte_carlo(seed, bet, total):
     return balance
 
 
+wins = 0
 winnings = 0
 for i in range(number_of_simulations):
     amount = monte_carlo(number_of_hands, betting_amount, total_money)
+    winnings += amount
     if amount > total_money:
-        winnings += 1
+        wins += 1
 
-win_percentage = (winnings / number_of_simulations) * 100
+win_percentage = (wins / number_of_simulations) * 100
+average_winnings = winnings/number_of_simulations
 
 print(f"The win percentage for the game will be {win_percentage} %")
+print(f"The average balance at the end of the game is {average_winnings}")
