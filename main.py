@@ -8,6 +8,8 @@ reward_amount = 5
 
 
 def monte_carlo(seed, bet, total):
+    """Simulates seed amount of game where the player wins the bet times the reward amount if both die rolls are
+    same and loses the bet amount if not """
     balance = total
     for j in range(seed):
         x = randint(1, 6)
